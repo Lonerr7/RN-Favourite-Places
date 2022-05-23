@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar />
+      <StatusBar style='dark' />
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
