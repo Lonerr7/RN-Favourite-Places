@@ -28,6 +28,7 @@ export default function App() {
               component={FavouritePlacesScreen}
               options={({ navigation }) => ({
                 headerTintColor: 'black',
+                title: 'Your Favourite Places',
                 headerRight: ({ tintColor }) => (
                   <IconButton
                     icon="add"
@@ -43,6 +44,7 @@ export default function App() {
               component={AddFavouritePlaceScreen}
               options={{
                 headerTintColor: 'black',
+                title: 'Add A New Place',
               }}
             />
           </Stack.Navigator>
