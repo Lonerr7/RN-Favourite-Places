@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FavouritePlacesScreen from './src/screens/FavouritePlacesScreen';
-import AddButton from './src/components/common/AddButton';
 import { Colors } from './src/helpers/styles';
 import AddFavouritePlaceScreen from './src/screens/AddFavouritePlaceScreen';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
+import IconButton from './src/components/common/IconButton';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,9 +26,17 @@ export default function App() {
             <Stack.Screen
               name="Favourite Places"
               component={FavouritePlacesScreen}
-              options={{
-                headerRight: () => <AddButton />,
-              }}
+              options={({ navigation }) => ({
+                headerTintColor: 'black',
+                headerRight: ({ tintColor }) => (
+                  <IconButton
+                    icon="add"
+                    color={tintColor}
+                    size={24}
+                    onPress={() => navigation.navigate('Add Favourite Place')}
+                  />
+                ),
+              })}
             />
             <Stack.Screen
               name="Add Favourite Place"
@@ -44,5 +51,3 @@ export default function App() {
     </>
   );
 }
-
-const styles = StyleSheet.create({});

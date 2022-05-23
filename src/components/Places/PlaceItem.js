@@ -3,19 +3,23 @@ import { Colors } from '../../helpers/styles';
 
 const PlaceItem = ({ title, imageUri, address, id }) => {
   return (
-    <View style={styles.rootContainer}>
-      <Pressable style={({ pressed }) => (pressed ? styles.pressedStyle : '')}>
-        <View style={styles.container}>
-          <View style={styles.imageBox}>
-            <Image style={styles.image} source={{ uri: imageUri }} />
-          </View>
-          <View style={styles.textBox}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.address}>{address}</Text>
-          </View>
+    <Pressable
+      style={({ pressed }) =>
+        pressed
+          ? [styles.rootContainer, styles.pressedStyle]
+          : styles.rootContainer
+      }
+    >
+      <View style={styles.container}>
+        <View style={styles.imageBox}>
+          <Image style={styles.image} source={{ uri: imageUri }} />
         </View>
-      </Pressable>
-    </View>
+        <View style={styles.textBox}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.address}>{address}</Text>
+        </View>
+      </View>
+    </Pressable>
   );
 };
 
